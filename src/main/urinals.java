@@ -6,7 +6,7 @@ package main;
 import java.util.Scanner;
 
 public class urinals {
-    static String input = "10101";
+    static String input = "100001";
     public static String checkString(String str) {
         return str;
     }

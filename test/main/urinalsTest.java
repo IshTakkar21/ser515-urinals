@@ -14,7 +14,7 @@ class urinalsTest {
     @Test
     void checkStringLength() {
         System.out.println("====== Ish Takkar == TEST ONE EXECUTED =======");
-        assertTrue(str.length() < 20);
+        assertAll(() -> assertTrue(str.length() < 20), () -> assertTrue(str.length() > 1));
     }
 
     @Test
