@@ -1,15 +1,26 @@
 package main;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class urinalsTest {
 
+    String input = urinals.input;
+    String str = urinals.checkString(input);
+
     @Test
-    @DisplayName("Good String!")
-    void goodString() {
-        Funcs f = new Funcs();
-        assert (f.goodString("Helloo") == true);
+    void checkStringLength() {
         System.out.println("====== Ish Takkar == TEST ONE EXECUTED =======");
+        assertTrue(str.length() < 20);
     }
+
+    @Test
+    void checkStringType() {
+        System.out.println("====== Ish Takkar == TEST TWO EXECUTED =======");
+        assertTrue(str.matches("^[01]+$"));
+    }
+
 }
