@@ -10,5 +10,6 @@ class urinalsTest {
     void goodString() {
         Funcs f = new Funcs();
         assert (f.goodString("Helloo") == true);
+        System.out.println("====== Ish Takkar == TEST ONE EXECUTED =======");
     }
 }
