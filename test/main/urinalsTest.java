@@ -7,20 +7,20 @@ import java.util.Scanner;
 import static org.junit.jupiter.api.Assertions.*;
 
 class urinalsTest {
-
-    String input = urinals.input;
-    String str = urinals.checkString(input);
+    urinals u = new urinals();
+    String input = u.input;
 
     @Test
     void checkStringLength() {
         System.out.println("====== Ish Takkar == TEST ONE EXECUTED =======");
-        assertAll(() -> assertTrue(str.length() < 20), () -> assertTrue(str.length() > 1));
+        assertAll(() -> assertTrue(input.length() < 20), () -> assertTrue(input.length() > 1));
     }
 
     @Test
     void checkStringType() {
         System.out.println("====== Ish Takkar == TEST TWO EXECUTED =======");
-        assertTrue(str.matches("^[01]+$"));
+        assertTrue(input.matches("^[01]+$"));
     }
+
 
 }
