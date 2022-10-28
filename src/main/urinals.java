@@ -6,9 +6,8 @@ package main;
 import java.util.Scanner;
 
 public class urinals {
-    static String input;
 
-    public static int countUrinals() {
+    public static int countUrinals(String input) {
         if(input.contains("11"))
             return -1;
         int count = 0;
@@ -41,16 +40,24 @@ public class urinals {
         }
         return count;
     }
+    public static boolean checkStringLength(String str) {
+        return str.length() < 20 && str.length() >= 1;
+    }
 
-    public static void getInputString() {
+    public static String getInputString() {
         Scanner sc = new Scanner(System.in);
         String str;
         while(!(str = sc.nextLine()).equals("-1")) {
-            input = str;
-            System.out.println(countUrinals());
+            return str;
         }
+        return "";
     }
     public static void main(String[] args) {
-        getInputString();
+        String str = getInputString();
+        if(checkStringLength(str))
+            System.out.println(countUrinals(str));
+        else {
+            System.out.println("-1");
+        }
     }
 }
