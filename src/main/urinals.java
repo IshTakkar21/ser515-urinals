@@ -12,14 +12,16 @@ public class urinals {
             return -1;
         int count = 0;
 
-        StringBuilder temp = new StringBuilder(input);
-
-        if(temp.equals("0")) {
+        if(input.equals("0")) {
             return 1;
         }
-        if(temp.equals("1")) {
+        if(input.equals("1")) {
             return 0;
         }
+
+        StringBuilder temp = new StringBuilder(input);
+
+
         for(int i = 0; i < temp.length(); i++) {
             if(i == 0) {
                 if(temp.charAt(i) == '0' && temp.charAt(i + 1) == '0') {

@@ -22,4 +22,11 @@ class urinalsTest {
         assertTrue(u.checkStringType("101010"));
     }
 
+    @Test
+    void checkConsecutiveOnes() {
+        System.out.println("====== Ish Takkar == TEST THREE EXECUTED =======");
+        urinals u = new urinals();
+        assertEquals(-1, u.countUrinals("10011"));
+    }
+
 }
