@@ -54,13 +54,13 @@ class urinalsTest {
 
     @Test
     void checkFileExists() {
-        assertEquals(0, urinals.readFromFile());
+        assertEquals(0, urinals.openFile());
     }
 
     @Test
     void checkFileContent() {
-        File f = new File("urinals.dat");
-        assertTrue(f.length() == 0);
+        urinals.openFile();
+        assertEquals(0, urinals.readFromFile());
     }
 
 }

@@ -8,10 +8,12 @@ import org.junit.jupiter.api.Test;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class urinals {
 
+    static BufferedReader in;
     public static int countUrinals(String input) {
         if(input.contains("11"))
             return -1;
@@ -65,10 +67,21 @@ public class urinals {
         return str;
     }
 
-    public static int readFromFile() {
+    public static int openFile() {
         try {
-            BufferedReader in = new BufferedReader(new FileReader("urinals.dat"));
+            in = new BufferedReader(new FileReader("urinals.dat"));
         } catch (FileNotFoundException e) {
+            return -1;
+        }
+        return 0;
+    }
+
+    public static int readFromFile() {
+        String line;
+        try {
+            if(in.readLine() == null)
+                return -1;
+        } catch (IOException e) {
             return -1;
         }
         return 0;
@@ -76,6 +89,6 @@ public class urinals {
 
     public static void main(String[] args) {
         String str = getInputString();
-        System.out.println(str);
+
     }
 }
