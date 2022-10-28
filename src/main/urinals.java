@@ -3,17 +3,14 @@
 
 package main;
 
-import org.junit.jupiter.api.Test;
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class urinals {
 
     static BufferedReader in;
+    static ArrayList<Integer> list;
     public static int countUrinals(String input) {
         if(input.contains("11"))
             return -1;
@@ -69,6 +66,7 @@ public class urinals {
 
     public static int openFile() {
         try {
+//            System.out.println("open file");
             in = new BufferedReader(new FileReader("urinals.dat"));
         } catch (FileNotFoundException e) {
             return -1;
@@ -78,22 +76,58 @@ public class urinals {
 
     public static int readFromFile() {
         String line;
+        list = new ArrayList<>();
         try {
+//            System.out.println("reading");
+
             if((line = in.readLine()) == null)
                 return -1;
-            while((line = in.readLine()) != null) {
-                if(checkStringLength(line) && checkStringType(line))
-                    System.out.println(countUrinals(line));
+            while((line) != null) {
+                if(checkStringLength(line) && checkStringType(line)) {
+                    //System.out.println(countUrinals(line));
+                    list.add(countUrinals(line));
+                }
+                line = in.readLine();
             }
+        } catch (IOException e) {
+            return -2;
+        }
+        return 0;
+    }
+
+    public static int writeToFile() {
+        int counter = 1;
+        File f = new File("rule.txt");
+        while(f.exists()) {
+            f = new File("rule" + counter + ".txt");
+            counter++;
+        }
+        FileWriter out;
+        try {
+            out = new FileWriter(f);
+        } catch (IOException e) {
+            return -1;
+        }
+        for(int i = 0; i < list.size(); i++) {
+            try {
+                out.write(list.get(i) + "\n");
+            } catch (IOException e) {
+                return -1;
+            }
+        }
+        try {
+            out.close();
         } catch (IOException e) {
             return -1;
         }
         return 0;
     }
 
+
     public static void main(String[] args) {
-//        String str = getInputString();
+//      String str = getInputString();
         openFile();
         readFromFile();
+        writeToFile();
     }
 }

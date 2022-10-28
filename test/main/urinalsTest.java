@@ -63,5 +63,11 @@ class urinalsTest {
         assertEquals(0, urinals.readFromFile());
     }
 
+    @Test
+    void checkIOExcept() {
+        urinals.openFile();
+        urinals.readFromFile();
+        assertEquals(0, urinals.writeToFile());
+    }
 
 }
