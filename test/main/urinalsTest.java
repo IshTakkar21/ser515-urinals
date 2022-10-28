@@ -29,4 +29,12 @@ class urinalsTest {
         assertEquals(-1, u.countUrinals("10011"));
     }
 
+    @Test
+    void checkIfCanHandleSizeOneString() {
+        System.out.println("====== Ish Takkar == TEST FOUR EXECUTED =======");
+        urinals u = new urinals();
+        assertEquals(1, u.countUrinals("0"));
+        assertEquals(0, u.countUrinals("1"));
+    }
+
 }
