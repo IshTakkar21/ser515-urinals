@@ -125,9 +125,18 @@ public class urinals {
 
 
     public static void main(String[] args) {
-//      String str = getInputString();
-        openFile();
-        readFromFile();
-        writeToFile();
+        System.out.println("How do you want to enter data? File or console?");
+        System.out.println("Press 0 for file (\"urinals.dat\" file will be read.)");
+        System.out.println("Press 1 for console");
+        Scanner sc = new Scanner(System.in);
+        Integer i = sc.nextInt();
+        if(i == 0) {
+            openFile();
+            readFromFile();
+            writeToFile();
+        } else if(i == 1)
+            getInputString();
+        else
+            System.out.println("Enter either 0 or 1!");
     }
 }
