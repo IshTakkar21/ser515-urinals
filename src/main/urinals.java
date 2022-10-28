@@ -56,16 +56,13 @@ public class urinals {
         Scanner sc = new Scanner(System.in);
         String str;
         while(!(str = sc.nextLine()).equals("-1")) {
-            return str;
+            if(checkStringLength(str) && checkStringType(str))
+                System.out.println(countUrinals(str));
         }
-        return "";
+        return str;
     }
+
     public static void main(String[] args) {
         String str = getInputString();
-        if(checkStringLength(str) && checkStringType(str))
-            System.out.println(countUrinals(str));
-        else {
-            System.out.println("-1");
-        }
     }
 }
