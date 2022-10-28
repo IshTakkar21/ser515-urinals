@@ -44,6 +44,10 @@ public class urinals {
         return str.length() < 20 && str.length() >= 1;
     }
 
+    public static boolean checkStringType(String str) {
+        return str.matches("^[01]+$");
+    }
+
     public static String getInputString() {
         Scanner sc = new Scanner(System.in);
         String str;
@@ -54,7 +58,7 @@ public class urinals {
     }
     public static void main(String[] args) {
         String str = getInputString();
-        if(checkStringLength(str))
+        if(checkStringLength(str) && checkStringType(str))
             System.out.println(countUrinals(str));
         else {
             System.out.println("-1");

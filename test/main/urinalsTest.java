@@ -15,4 +15,11 @@ class urinalsTest {
         assertTrue(u.checkStringLength("101010"));
     }
 
+    @Test
+    void checkStringType() {
+        System.out.println("====== Ish Takkar == TEST TWO EXECUTED =======");
+        urinals u = new urinals();
+        assertTrue(u.checkStringType("101010"));
+    }
+
 }
