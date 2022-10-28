@@ -79,8 +79,12 @@ public class urinals {
     public static int readFromFile() {
         String line;
         try {
-            if(in.readLine() == null)
+            if((line = in.readLine()) == null)
                 return -1;
+            while((line = in.readLine()) != null) {
+                if(checkStringLength(line) && checkStringType(line))
+                    System.out.println(countUrinals(line));
+            }
         } catch (IOException e) {
             return -1;
         }
@@ -88,7 +92,8 @@ public class urinals {
     }
 
     public static void main(String[] args) {
-        String str = getInputString();
-
+//        String str = getInputString();
+        openFile();
+        readFromFile();
     }
 }
