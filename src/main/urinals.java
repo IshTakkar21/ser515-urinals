@@ -5,6 +5,9 @@ package main;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.Scanner;
 
 public class urinals {
@@ -62,7 +65,17 @@ public class urinals {
         return str;
     }
 
+    public static int readFromFile() {
+        try {
+            BufferedReader in = new BufferedReader(new FileReader("urinals.dat"));
+        } catch (FileNotFoundException e) {
+            return -1;
+        }
+        return 0;
+    }
+
     public static void main(String[] args) {
         String str = getInputString();
+        System.out.println(str);
     }
 }

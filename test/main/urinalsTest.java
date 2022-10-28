@@ -3,6 +3,8 @@ package main;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 
@@ -49,5 +51,12 @@ class urinalsTest {
         assertEquals(2, urinals.countUrinals("0000"));
         assertEquals(1, urinals.countUrinals("01000"));
     }
+
+    @Test
+    void checkFileExists() {
+        assertEquals(0, urinals.readFromFile());
+    }
+
+
 
 }
