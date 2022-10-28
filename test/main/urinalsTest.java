@@ -37,4 +37,15 @@ class urinalsTest {
         assertEquals(0, u.countUrinals("1"));
     }
 
+    @Test
+    void checkLogic() {
+        System.out.println("====== Ish Takkar == TEST FIVE EXECUTED =======");
+        urinals u = new urinals();
+        assertEquals(1, u.countUrinals("10001"));
+        assertEquals(0, u.countUrinals("1001"));
+        assertEquals(3, u.countUrinals("00000"));
+        assertEquals(2, u.countUrinals("0000"));
+        assertEquals(1, u.countUrinals("01000"));
+    }
+
 }
