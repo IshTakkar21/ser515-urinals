@@ -57,6 +57,10 @@ class urinalsTest {
         assertEquals(0, urinals.readFromFile());
     }
 
-
+    @Test
+    void checkFileContent() {
+        File f = new File("urinals.dat");
+        assertTrue(f.length() == 0);
+    }
 
 }
