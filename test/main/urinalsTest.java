@@ -2,7 +2,9 @@ package main;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Scanner;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -46,6 +48,16 @@ class urinalsTest {
         assertEquals(3, u.countUrinals("00000"));
         assertEquals(2, u.countUrinals("0000"));
         assertEquals(1, u.countUrinals("01000"));
+    }
+
+    @Test
+    void checkIfUserInputFromKeyboard() {
+        System.out.println("====== Ish Takkar == TEST SIX EXECUTED =======");
+        urinals u = new urinals();
+        String str = "1001";
+        InputStream iStream = new ByteArrayInputStream(str.getBytes());
+        System.setIn(iStream);
+        assertEquals("1001", u.getInputString());
     }
 
 }

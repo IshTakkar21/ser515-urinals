@@ -3,6 +3,8 @@
 
 package main;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Scanner;
 
 public class urinals {
